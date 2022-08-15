@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS DOM Summary</title>
+</head>
+
+<body>
+    <h1>Event Handler</h1>
+    <h3 id="handler-status">Default Text</h3>
+
+
+
+    <input type="text" id="input-text">
+    <button id="update-btn">Update</button>
+    <br>
+    <br>
+
+
+
+
+    <!-- // Option-1/ -->
+    <button onclick="handleOnClick()">Handle event by adding onclick function</button>
+
+    <!-- // Option-2/ -->
+    <button id="handle-event-listener">Handle event by adding eventListener & function</button>
+
+
+
+
+    <script>
+
+        // Option-1/
+        function handleOnClick() {
+            const handlerStatus = document.getElementById("handler-status");
+            handlerStatus.innerText = ('Handled event by adding onclick function');
+        }
+
+        // Option-2/
+        document.getElementById('handle-event-listener').addEventListener('click', function handleEventListener() {
+            const handlerStatus = document.getElementById("handler-status");
+            handlerStatus.innerText = ('Handled event by adding eventListener function');
+        });
+
+
+        document.getElementById("update-btn").addEventListener('click', function updateOnClick() {
+
+
+            // this a way===========
+            // =======================================================================================================
+            const handlerStatus = document.getElementById("handler-status");
+            const inputText = document.getElementById("input-text");
+            handlerStatus.innerText = (inputText.value);
+            inputText.value = "";
+
+            // this is another way================================================================================================================================
+
+
+            // const inputField = document.getElementById('input-text');
+            // const inputText = inputField.value;
+            // const handlerStatus = document.getElementById("handler-status");
+            // handlerStatus.innerText = (inputText);
+            // inputField.value = "";
+            // =================================================================================================================================
+
+
+        })
+
+    </script>
+</body>
+
+</html>
